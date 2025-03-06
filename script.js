@@ -2,7 +2,7 @@ function sendCommand(command) {
     fetch(`/server/${command}`, { method: 'POST' })
         .then(response => response.text())
         .then(data => {
-            document.getElementById("console").innerHTML += `[KS Panel]: ${data}\n`;
+            document.getElementById("console").innerHTML += `[Server]: ${data}\n`;
         })
         .catch(err => console.error("Error:", err));
 }
@@ -16,4 +16,4 @@ function fetchLogs() {
         });
 }
 
-setInterval(fetchLogs, 2000); // Fetch logs every 2 seconds
+setInterval(fetchLogs, 3000); // Fetch logs every 3 seconds

@@ -3,43 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ludo Game</title>
+    <title>Local Multiplayer Ludo</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <h1>Ludo Game</h1>
+    <p id="turnInfo">Player 1's Turn</p>
 
     <div class="game-container">
         <div class="ludo-board">
-            <div class="home red-home"></div>
-            <div class="home blue-home"></div>
-            <div class="home yellow-home"></div>
-            <div class="home green-home"></div>
-            
-            <div class="path"></div>
-            <div class="center"></div>
+            <!-- Ludo board cells -->
+            <div class="cells">
+                <!-- Cells will be generated here dynamically -->
+            </div>
+
+            <!-- Tokens for players -->
+            <div class="tokens">
+                <div id="token-red" class="token red"></div>
+                <div id="token-blue" class="token blue"></div>
+            </div>
         </div>
 
+        <!-- Player Section -->
         <div class="players">
             <div class="player" id="player1">
                 <img src="avatar1.png" alt="Player 1">
-                <p>Player 1 - 47%</p>
+                <p>Player 1 (Red)</p>
             </div>
             <div class="player" id="player2">
                 <img src="avatar2.png" alt="Player 2">
-                <p>Player 2 - 55%</p>
-            </div>
-            <div class="player" id="player3">
-                <img src="avatar3.png" alt="Player 3">
-                <p>Player 3 - 69%</p>
-            </div>
-            <div class="player" id="player4">
-                <img src="avatar4.png" alt="Player 4">
-                <p>Player 4 - 35%</p>
+                <p>Player 2 (Blue)</p>
             </div>
         </div>
 
+        <!-- Dice Section -->
         <div class="dice-container">
             <button id="rollDice">🎲 Roll Dice</button>
             <p id="diceResult">🎲</p>

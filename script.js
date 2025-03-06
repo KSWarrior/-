@@ -1,46 +1,62 @@
-let playerPositions = { player1: 0, player2: 0 };
-let currentPlayer = "player1";
+let players = [
+    { name: "Player 1", position: 0, color: "red", tokenId: "token-red" },
+    { name: "Player 2", position: 0, color: "blue", tokenId: "token-blue" }
+];
 
+let currentPlayerIndex = 0;
+
+// Generate board cells
+const board = document.querySelector(".cells");
+for (let i = 0; i < 25; i++) {
+    let cell = document.createElement("div");
+    cell.classList.add("cell");
+    cell.id = `cell-${i}`;
+    
+    if (i === 0) cell.classList.add("start-red");
+    if (i === 5) cell.classList.add("start-blue");
+    if ([6, 12, 18].includes(i)) cell.classList.add("safe-zone");
+    if (i === 24) cell.classList.add("finish");
+
+    board.appendChild(cell);
+}
+
+// Dice rolling
 document.getElementById("rollDice").addEventListener("click", function () {
     let diceRoll = Math.floor(Math.random() * 6) + 1;
     document.getElementById("diceResult").innerText = `🎲 ${diceRoll}`;
     
-    movePlayer(currentPlayer, diceRoll);
-    checkWin(currentPlayer);
-    switchTurn();
+    movePlayer(players[currentPlayerIndex], diceRoll);
+    checkWin(players[currentPlayerIndex]);
+
+    // Switch to next player
+    currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
+    updateTurnInfo();
 });
 
 function movePlayer(player, steps) {
-    playerPositions[player] += steps;
-    
-    if (playerPositions[player] > 23) {
-        playerPositions[player] = 23;
-    }
+    player.position += steps;
+    if (player.position > 24) player.position = 24; // Stop at the last position
 
-    let playerElement = document.getElementById(player);
-    let cell = document.getElementById(`cell-${playerPositions[player]}`);
-    
-    playerElement.style.transform = `translate(${cell.offsetLeft}px, ${cell.offsetTop}px)`;
-}
+    let token = document.getElementById(player.tokenId);
+    let cell = document.getElementById(`cell-${player.position}`);
 
-function switchTurn() {
-    currentPlayer = currentPlayer === "player1" ? "player2" : "player1";
-    document.getElementById("turnInfo").innerText = currentPlayer === "player1" ? "Player 1's Turn" : "Player 2's Turn";
+    token.style.left = `${cell.offsetLeft}px`;
+    token.style.top = `${cell.offsetTop}px`;
 }
 
 function checkWin(player) {
-    if (playerPositions[player] === 23) {
-        alert(`${player === "player1" ? "Player 1 (Red)" : "Player 2 (Blue)"} Wins!`);
+    if (player.position === 24) {
+        alert(`${player.name} Wins!`);
         resetGame();
     }
 }
 
+function updateTurnInfo() {
+    document.getElementById("turnInfo").innerText = `${players[currentPlayerIndex].name}'s Turn`;
+}
+
 function resetGame() {
-    playerPositions = { player1: 0, player2: 0 };
-    currentPlayer = "player1";
+    players.forEach(player => player.position = 0);
+    currentPlayerIndex = 0;
     document.getElementById("turnInfo").innerText = "Player 1's Turn";
-    document.getElementById("diceResult").innerText = "🎲";
-    
-    document.getElementById("player1").style.transform = "translate(0px, 0px)";
-    document.getElementById("player2").style.transform = "translate(0px, 0px)";
 }

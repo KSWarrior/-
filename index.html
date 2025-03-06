@@ -3,49 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2-Player Ludo Game</title>
+    <title>Ludo Game</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>2-Player Ludo</h1>
-    <div class="board">
-        <div id="cell-0" class="cell"></div>
-        <div id="cell-1" class="cell"></div>
-        <div id="cell-2" class="cell"></div>
-        <div id="cell-3" class="cell"></div>
-        <div id="cell-4" class="cell"></div>
-        <div id="cell-5" class="cell"></div>
-        <div id="cell-6" class="cell"></div>
-        <div id="cell-7" class="cell"></div>
-        <div id="cell-8" class="cell"></div>
-        <div id="cell-9" class="cell"></div>
-        <div id="cell-10" class="cell"></div>
-        <div id="cell-11" class="cell"></div>
-        <div id="cell-12" class="cell"></div>
-        <div id="cell-13" class="cell"></div>
-        <div id="cell-14" class="cell"></div>
-        <div id="cell-15" class="cell"></div>
-        <div id="cell-16" class="cell"></div>
-        <div id="cell-17" class="cell"></div>
-        <div id="cell-18" class="cell"></div>
-        <div id="cell-19" class="cell"></div>
-        <div id="cell-20" class="cell"></div>
-        <div id="cell-21" class="cell"></div>
-        <div id="cell-22" class="cell"></div>
-        <div id="cell-23" class="cell"></div>
-    </div>
 
-    <div class="players">
-        <div id="player1" class="player red"></div>
-        <div id="player2" class="player blue"></div>
-    </div>
+    <h1>Ludo Game</h1>
 
-    <div class="dice-container">
-        <button id="rollDice">Roll Dice</button>
-        <p id="diceResult">🎲</p>
-    </div>
+    <div class="game-container">
+        <div class="ludo-board">
+            <div class="home red-home"></div>
+            <div class="home blue-home"></div>
+            <div class="home yellow-home"></div>
+            <div class="home green-home"></div>
+            
+            <div class="path"></div>
+            <div class="center"></div>
+        </div>
 
-    <p id="turnInfo">Player 1's Turn</p>
+        <div class="players">
+            <div class="player" id="player1">
+                <img src="avatar1.png" alt="Player 1">
+                <p>Player 1 - 47%</p>
+            </div>
+            <div class="player" id="player2">
+                <img src="avatar2.png" alt="Player 2">
+                <p>Player 2 - 55%</p>
+            </div>
+            <div class="player" id="player3">
+                <img src="avatar3.png" alt="Player 3">
+                <p>Player 3 - 69%</p>
+            </div>
+            <div class="player" id="player4">
+                <img src="avatar4.png" alt="Player 4">
+                <p>Player 4 - 35%</p>
+            </div>
+        </div>
+
+        <div class="dice-container">
+            <button id="rollDice">🎲 Roll Dice</button>
+            <p id="diceResult">🎲</p>
+        </div>
+
+    </div>
 
     <script src="script.js"></script>
 </body>

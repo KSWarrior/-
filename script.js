@@ -1,27 +1,19 @@
-// Update Clock
-function updateClock() {
-    let now = new Date();
-    let hours = String(now.getHours()).padStart(2, '0');
-    let minutes = String(now.getMinutes()).padStart(2, '0');
-    let seconds = String(now.getSeconds()).padStart(2, '0');
-    document.getElementById('clock').innerText = hours + ":" + minutes + ":" + seconds;
+function sendCommand(command) {
+    fetch(`/server/${command}`, { method: 'POST' })
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("console").innerHTML += `[KS Panel]: ${data}\n`;
+        })
+        .catch(err => console.error("Error:", err));
 }
-setInterval(updateClock, 1000);
-updateClock();
 
-// Infinite Red Cube Rain Generator
-function createRain() {
-    setInterval(() => {
-        const rainContainer = document.getElementById('rain');
-        let cube = document.createElement('div');
-        cube.classList.add('cube');
-        cube.style.left = Math.random() * 100 + 'vw';
-        cube.style.animationDuration = (Math.random() * 6 + 5) + 's';
-        rainContainer.appendChild(cube);
-        cube.addEventListener("animationend", function() {
-            cube.remove();
+function fetchLogs() {
+    fetch('/logs')
+        .then(response => response.text())
+        .then(logs => {
+            document.getElementById("console").innerHTML = logs;
+            document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
         });
-    }, 100);
 }
 
-createRain();
+setInterval(fetchLogs, 2000); // Fetch logs every 2 seconds

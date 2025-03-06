@@ -3,25 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minecraft Server Panel</title>
+    <title>2-Player Ludo Game</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<div class="container">
-    <h1>⚡ Minecraft Server Control Panel ⚡</h1>
-
-    <div class="button-container">
-        <button class="start" onclick="sendCommand('start')">Start Server</button>
-        <button class="stop" onclick="sendCommand('stop')">Stop Server</button>
-        <button class="restart" onclick="sendCommand('restart')">Restart Server</button>
+    <h1>2-Player Ludo</h1>
+    <div class="board">
+        <div id="cell-0" class="cell"></div>
+        <div id="cell-1" class="cell"></div>
+        <div id="cell-2" class="cell"></div>
+        <div id="cell-3" class="cell"></div>
+        <div id="cell-4" class="cell"></div>
+        <div id="cell-5" class="cell"></div>
+        <div id="cell-6" class="cell"></div>
+        <div id="cell-7" class="cell"></div>
+        <div id="cell-8" class="cell"></div>
+        <div id="cell-9" class="cell"></div>
+        <div id="cell-10" class="cell"></div>
+        <div id="cell-11" class="cell"></div>
+        <div id="cell-12" class="cell"></div>
+        <div id="cell-13" class="cell"></div>
+        <div id="cell-14" class="cell"></div>
+        <div id="cell-15" class="cell"></div>
+        <div id="cell-16" class="cell"></div>
+        <div id="cell-17" class="cell"></div>
+        <div id="cell-18" class="cell"></div>
+        <div id="cell-19" class="cell"></div>
+        <div id="cell-20" class="cell"></div>
+        <div id="cell-21" class="cell"></div>
+        <div id="cell-22" class="cell"></div>
+        <div id="cell-23" class="cell"></div>
     </div>
 
-    <h2>📜 Server Console</h2>
-    <div class="console" id="console"></div>
-</div>
+    <div class="players">
+        <div id="player1" class="player red"></div>
+        <div id="player2" class="player blue"></div>
+    </div>
 
-<script src="script.js"></script>
+    <div class="dice-container">
+        <button id="rollDice">Roll Dice</button>
+        <p id="diceResult">🎲</p>
+    </div>
 
+    <p id="turnInfo">Player 1's Turn</p>
+
+    <script src="script.js"></script>
 </body>
 </html>

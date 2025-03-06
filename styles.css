@@ -1,0 +1,132 @@
+/* Page Styling */
+body {
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    background-color: black;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Logo */
+.logo {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 0, 0, 0.8);
+    box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.8);
+    animation: floatUpDown 2s infinite ease-in-out;
+}
+
+/* Normal Font for Name */
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ff0000;
+    text-shadow: 4px 4px 0px black, 7px 7px 10px rgba(255, 0, 0, 0.8);
+}
+
+/* Time Styling */
+.clock {
+    font-size: 26px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    color: #ff4444;
+    margin: 10px 0 20px 0;
+    text-shadow: 3px 3px 0px black;
+    animation: flicker 2s infinite;
+}
+
+@keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Button Styling */
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 12px auto;
+    padding: 14px;
+    width: 85%;
+    max-width: 280px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+    animation: floatUpDown 2.5s infinite ease-in-out;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Discord Button */
+.discord {
+    background-color: #7289DA;
+    box-shadow: 0px 0px 15px rgba(114, 137, 218, 0.8);
+}
+
+/* YouTube Button */
+.youtube {
+    background-color: #ff4444;
+    box-shadow: 0px 0px 15px rgba(255, 68, 68, 0.8);
+}
+
+/* Button Hover Effect */
+.button:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 20px white;
+}
+
+/* Button Icons */
+.button img {
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background-color: white;
+    padding: 4px;
+}
+
+/* Infinite Red Cube Rain */
+.rain-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.cube {
+    position: absolute;
+    background-color: rgba(255, 0, 0, 0.8);
+    width: 4px;
+    height: 4px;
+    opacity: 0;
+    animation: cubeFall linear infinite, explode 0.3s forwards;
+    box-shadow: 0px 0px 5px rgba(255, 0, 0, 0.9);
+}
+
+/* Falling Animation - Infinite Rain */
+@keyframes cubeFall {
+    0% { transform: translateY(-10px) translateX(0px); opacity: 1; }
+    50% { transform: translateY(50vh) translateX(5px); opacity: 1; }
+    100% { transform: translateY(120vh) translateX(-5px); opacity: 0; }
+}
+
+/* Explosion Effect */
+@keyframes explode {
+    100% { transform: scale(3); opacity: 0; }
+}

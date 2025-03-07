@@ -32,7 +32,7 @@ document.getElementById("signupForm")?.addEventListener("submit", function (even
 
     localStorage.setItem(newUsername, JSON.stringify(userData));
     alert("Signup successful! You can now log in.");
-    window.location.href = "index.html";
+    window.location.href = "login.html";
 });
 
 // Login Authentication

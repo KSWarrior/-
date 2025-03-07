@@ -32,7 +32,7 @@ document.getElementById("signupForm")?.addEventListener("submit", function (even
 
     localStorage.setItem(newUsername, JSON.stringify(userData));
     alert("Signup successful! You can now log in.");
-    window.location.href = "login.html";
+    window.location.href = "login";
 });
 
 // Login Authentication
@@ -47,7 +47,7 @@ document.getElementById("loginForm")?.addEventListener("submit", function (event
         const userData = JSON.parse(storedUser);
         if (userData.password === password) {
             sessionStorage.setItem("loggedIn", "true");
-            window.location.href = "dashboard.html";
+            window.location.href = "dashboard";
             return;
         }
     }

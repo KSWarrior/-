@@ -22,7 +22,7 @@ document.getElementById("signupForm")?.addEventListener("submit", function (even
         return;
     }
 
-    // Store User Data in Local Storage (Simulated Database)
+    // Store User Data in Local Storage
     const userData = {
         firstName,
         lastName,

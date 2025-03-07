@@ -1,4 +1,3 @@
-<script>
         if (!sessionStorage.getItem("loggedIn")) {
     window.location.href = "login";
         }
@@ -6,4 +5,3 @@
             sessionStorage.removeItem("loggedIn");
             window.location.href = "login";
         });
-    </script>

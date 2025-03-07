@@ -3,48 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Local Multiplayer Ludo</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Minecraft Custom IP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .ip-address {
+            font-size: 20px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .links {
+            margin-top: 20px;
+        }
+        .links a {
+            display: block;
+            margin: 10px 0;
+            text-decoration: none;
+            color: #28a745;
+            font-size: 18px;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 
-    <h1>Ludo Game</h1>
-    <p id="turnInfo">Player 1's Turn</p>
+    <div class="container">
+        <h1>Minecraft Custom IP Address</h1>
+        <p class="ip-address">play.yourserver.com</p>
 
-    <div class="game-container">
-        <div class="ludo-board">
-            <!-- Ludo board cells -->
-            <div class="cells">
-                <!-- Cells will be generated here dynamically -->
-            </div>
-
-            <!-- Tokens for players -->
-            <div class="tokens">
-                <div id="token-red" class="token red"></div>
-                <div id="token-blue" class="token blue"></div>
-            </div>
+        <div class="links">
+            <h2>Other Websites</h2>
+            <a href="https://example1.com" target="_blank">Website 1</a>
+            <a href="https://example2.com" target="_blank">Website 2</a>
         </div>
-
-        <!-- Player Section -->
-        <div class="players">
-            <div class="player" id="player1">
-                <img src="avatar1.png" alt="Player 1">
-                <p>Player 1 (Red)</p>
-            </div>
-            <div class="player" id="player2">
-                <img src="avatar2.png" alt="Player 2">
-                <p>Player 2 (Blue)</p>
-            </div>
-        </div>
-
-        <!-- Dice Section -->
-        <div class="dice-container">
-            <button id="rollDice">🎲 Roll Dice</button>
-            <p id="diceResult">🎲</p>
-        </div>
-
     </div>
 
-    <script src="script.js"></script>
 </body>
 </html>

@@ -3,11 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Verification Required</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-</body>
-    <p>Click on login to get this</p>
-    <a id="index-login" href="login">Login</a>
+<body>
+
+<br><br><br>
+<h1>Paid Plugins For Free</h1>
+<p>Need Passcode To Download Paid Plugins For Free</p>
+<input type="text" id="passcode" placeholder="Enter Passcode">
+<br>
+<button class="verify-btn" onclick="verify()">Verify</button>
+
+<div>
+    <br>
+    <p>You get Passcode In Discord Server</p>
+    <br>
+    <a href="https://discord.gg/YxA4aAfXKT" target="_blank">
+        <button class="join-btn">Join Discord</button>
+    </a>
+</div>
+
+<script>
+function verify() {
+    const passcode = document.getElementById('passcode').value;
+    const validPasscodes = ["24", "25", "26"];
+
+    if (validPasscodes.includes(passcode)) {
+        alert("Passcode verified! Access granted.");
+        localStorage.setItem("verified", "true");
+        localStorage.setItem("verifyTime", Date.now().toString());
+        window.location.href = "dashboard.html";
+    } else {
+        alert("Incorrect Passcode. Please check the Passcode in our Discord server.");
+    }
+}
+
+function checkVerification() {
+    const verified = localStorage.getItem("verified");
+    const verifyTime = localStorage.getItem("verifyTime");
+
+    if (verified === "true" && verifyTime) {
+        const currentTime = Date.now();
+        const timeDifference = currentTime - parseInt(verifyTime);
+
+        // If 25 minutes have passed, clear verification
+        if (timeDifference > 25 * 60 * 1000) {
+            localStorage.removeItem("verified");
+            localStorage.removeItem("verifyTime");
+            alert("Your verification has expired. Please verify again.");
+        } else {
+            window.location.href = "dashboard.html";
+        }
+    }
+}
+
+// Automatically check verification when the page loads
+window.onload = checkVerification;
+</script>
+
 </body>
 </html>
